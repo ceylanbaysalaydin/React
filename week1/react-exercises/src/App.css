@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+div.col-md-4 img {
+  margin: 30px 10px;
+  width: 90px;
+  height: 70px;
+}
+h6 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.9rem;
+}
+ul {
+  padding-left: 0;
+}
+li {
+  list-style-type: none;
+  background-color: antiquewhite;
+  padding: 20px;
+  color: brown;
+  font-size: 1.3rem;
+}
+li:hover {
+  background-color: brown;
+  color: burlywood;
+  cursor: pointer;
+}
