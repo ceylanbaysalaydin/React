@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+div.close {
+  margin-top: 10px;
+  text-align: right;
+}
+div.close:hover {
+  cursor: pointer;
+}
+p.errorMessage {
+  margin-top: 40px;
+}
+.searchButton:disabled {
+  cursor: not-allowed !important;
+}
+div.card {
+  display: inline-block;
+  width: 400px;
+  border: 1px solid black;
+  margin: 60px 0;
+  margin-bottom: 0;
+  text-align: left;
+  padding: 5px 30px;
+}
+.card p:first-of-type {
+  margin-top: 3px;
+  margin-bottom: 30px;
+}
+h1 {
+  margin: 50px;
+}
+h2 {
+  margin-left: 50px;
+}
+h3 {
+  margin: 50px;
+}
+h4 {
+  font-size: 2rem;
+  margin: 0;
+}
+h6 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+.searchButton {
+  font-size: 1.3rem;
+  background-color: #e6e6e6;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+.searchButton:hover {
+  background-color: rgba(230, 230, 230, 0.5);
+  cursor: pointer;
+}
+.searchInput {
+  width: 360px;
+  height: 35px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 2px solid #e6e6e6;
+  padding: 5px 10px;
+  font-size: 1rem;
+}
