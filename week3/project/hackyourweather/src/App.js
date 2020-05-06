@@ -1,19 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import WeatherCard from './WeatherCard';
 import Form from './Form';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
-  const [searchCount, setSearchCount] = useState(0);
   const [cityWeatherCards, setCityWeatherCards] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [hasError, setError] = useState(false);
 
   const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
+  const getCityWeather = async () => {
+    try {
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`;
+      setLoading(true);
+      setError(false);
+      const response = await fetch(URL);
+      if (response.ok) {
+        console.log(response);
+        const data = await response.json();
+        setCityWeatherCards((currentList) => [data, ...currentList]);
+      } else {
+        throw Error('Something went wrong...');
+      }
+    } catch (e) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const onSubmit = (e) => {
-    setSearchCount(searchCount + 1);
+    if (inputValue !== '') {
+      getCityWeather();
+    }
     e.preventDefault();
   };
 
@@ -24,30 +45,6 @@ function App() {
     });
   };
   const isCityWeatherCardsReady = cityWeatherCards.length !== 0;
-  useEffect(() => {
-    const getCityWeather = async () => {
-      try {
-        const URL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=${API_KEY}`;
-        setLoading(true);
-        setError(false);
-        const response = await fetch(URL);
-        if (response.ok) {
-          console.log(response);
-          const data = await response.json();
-          setCityWeatherCards((currentList) => [data, ...currentList]);
-        } else {
-          throw Error('Something went wrong...');
-        }
-      } catch (e) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-    if (inputValue !== '') {
-      getCityWeather();
-    }
-  }, [searchCount]);
 
   return (
     <div className="App">
