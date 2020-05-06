@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import HobbyList from './HobbyList';
 import Guarantee from './Guarantee';
-import icon1 from './f-delivery.png';
-import icon2 from './coin.png';
-import icon3 from './chat.png';
+import deliveryIcon from './f-delivery.png';
+import coinIcon from './coin.png';
+import chatIcon from './chat.png';
 
 function App() {
   return (
@@ -12,17 +12,17 @@ function App() {
       <HobbyList />
       <div className="row">
         <Guarantee
-          img={icon1}
+          img={deliveryIcon}
           title="Free shipping"
           description="Some description about free shipping"
         />
         <Guarantee
-          img={icon2}
+          img={coinIcon}
           title="100% Money back"
           description="Some description about returning product"
         />
         <Guarantee
-          img={icon3}
+          img={chatIcon}
           title="Online support 24/7"
           description="Some description about online support"
         />

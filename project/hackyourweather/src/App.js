@@ -7,19 +7,29 @@ function App() {
   return (
     <div className="App">
       <h1> Weather </h1>
-      {cityWeather.map(cityObject => (
-        <WeatherCard
-          key={cityObject.id}
-          cityName={cityObject.name}
-          countryName={cityObject.sys.country}
-          main={cityObject.weather[0].main}
-          description={cityObject.weather[0].description}
-          temp_min={cityObject.main.temp_min}
-          temp_max={cityObject.main.temp_max}
-          lon={cityObject.coord.lon}
-          lat={cityObject.coord.lat}
-        />
-      ))}
+      {cityWeather.map((cityObject) => {
+        const {
+          id,
+          name,
+          sys: { country },
+          weather,
+          main: { temp_max, temp_min },
+          coord: { lon, lat },
+        } = cityObject;
+        return (
+          <WeatherCard
+            key={id}
+            cityName={name}
+            countryName={country}
+            main={weather[0].main}
+            description={weather[0].description}
+            temp_min={temp_min}
+            temp_max={temp_max}
+            lon={lon}
+            lat={lat}
+          />
+        );
+      })}
     </div>
   );
 }
