@@ -1,14 +1,19 @@
 import React from 'react';
 
-export default function FriendProfile({ friend }) {
-  const { name, location, email, phone } = friend;
-  const {
-    street: { number, name: streetName },
-    city,
-    state,
-    country,
-    postcode,
-  } = location;
+export default function FriendProfile({
+  friend: {
+    name,
+    location: {
+      street: { number, name: streetName },
+      city,
+      state,
+      country,
+      postcode,
+    },
+    email,
+    phone,
+  },
+}) {
   return (
     <div>
       <ul>
