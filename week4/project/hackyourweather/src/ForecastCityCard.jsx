@@ -11,27 +11,27 @@ export default function ForecastCityCard() {
 
   const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
-  const getForecastData = async () => {
-    try {
-      const URL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&appid=${API_KEY} `;
-      setLoading(true);
-      const response = await fetch(URL);
-      if (response.ok) {
-        const data = await response.json();
-        setForecastData(data.list);
-        setCity(data.city);
-      } else {
-        throw Error('Something went wrong...');
-      }
-    } catch (e) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
+    const getForecastData = async () => {
+      try {
+        const URL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&appid=${API_KEY} `;
+        setLoading(true);
+        const response = await fetch(URL);
+        if (response.ok) {
+          const data = await response.json();
+          setForecastData(data.list);
+          setCity(data.city);
+        } else {
+          throw Error('Something went wrong...');
+        }
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
     getForecastData();
-  }, [cityId]);
+  }, [API_KEY, cityId]);
 
   return (
     <div>
