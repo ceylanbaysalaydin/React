@@ -11,8 +11,8 @@ div.close:hover {
 p.errorMessage {
   margin-top: 40px;
 }
-.searchButton:disabled {
-  cursor: not-allowed !important;
+button.searchButton:disabled {
+  cursor: not-allowed;
 }
 div.card {
   display: inline-block;

@@ -18,7 +18,6 @@ function App() {
       setError(false);
       const response = await fetch(URL);
       if (response.ok) {
-        console.log(response);
         const data = await response.json();
         setCityWeatherCards((currentList) => [data, ...currentList]);
       } else {
@@ -32,9 +31,7 @@ function App() {
   };
 
   const onSubmit = (e) => {
-    if (inputValue !== '') {
-      getCityWeather();
-    }
+    getCityWeather();
     e.preventDefault();
   };
 
